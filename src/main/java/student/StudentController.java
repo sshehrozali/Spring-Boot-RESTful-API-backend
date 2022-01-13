@@ -12,7 +12,7 @@ import java.util.List;
 public class StudentController {
 
     private final StudentService studentService;
-    
+
     // Dependency Injection
     @Autowired
     public StudentController(StudentService studentService) {
