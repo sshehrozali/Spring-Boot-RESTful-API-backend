@@ -1,26 +1,26 @@
 package student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/student")
 public class StudentController {
 
-    // REST Endpoint
+    private final StudentService studentService;
+    
+    // Dependency Injection
+    @Autowired
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
     @GetMapping
     public List<Student> getStudent() {
-        return List.of(
-                new Student(
-                        1,
-                        "Ayesha",
-                        LocalDate.of(2000, Month.JANUARY, 13)
-                )
-        );
+        return studentService.getStudent();
     }
 }

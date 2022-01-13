@@ -27,7 +27,6 @@ public class Student {
     }
 
     // Getters & Setters
-
     public int getId() {
         return id;
     }
